@@ -64,4 +64,46 @@ http://localhost:8080/WebGoat
 
 *** Note: This examples supposes that WebGoat is up and running
 
+1.2.2 Check Instalation of Mod_security2
+
+ACTION: GOTO directory C:\Apache24 -> bin
+
+RESULT: Exists yajl.dll, pcre.dll, lua52.dll, libcurl.dll, libhttpd.dll, libhttpd.dll
+
+ACTION: GOTO directory C:\Apache24 -> modules
+
+RESULT: Exists mod_proxy.so, mod_proxy_http.so, mod_proxy_http2.so, mod_unique_id.so,
+
+        mod_security2.so, mod_proxy.html.so
+        
+ACTION: Check file C:\Apache24 -> conf -> http.conf
+
+RESULT:
+
+ServerName localhost:80
+
+LoadModule unique_id_module modules/mod_unique_id.so
+
+LoadModule security2_module modules/mod_security2.so
+
+# Various modsecurity
+
+Include conf/modsecurity.conf
+
+IfModule security2_module
+
+#SecRuleEngine DetectionOnly
+
+#SecRuleEngine On
+
+#SecRuleEngine Off
+
+    Include conf/extra/modsecurity.conf
+    
+Include conf/extra/crs-setup.conf
+
+Include conf/extra/crs-rules/*.conf
+
+IfModule
+
 2- Teste
