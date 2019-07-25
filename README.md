@@ -19,15 +19,22 @@
 Fontes: 
    
 https://www.apachelounge.com/
+
 https://coreruleset.org/installation/
+
 https://www.modsecurity.org/
    
 Unzip Apache24.zip of this github into C:\Apache24
+
 httpd.exe -k install # Só 1 vez.
+
 httpd.exe -k start   # Inicialização do Web server Apache
+
 httpd.exe -k restart # Reinicialização do Web server Apache
+
 httpd.exe -k stop    # Parada do Web server Apache
+
 httpd.exe -t         # Teste de configuração 
-       
+
 
 2- Teste
