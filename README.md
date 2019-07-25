@@ -76,7 +76,7 @@ RESULT: Exists mod_proxy.so, mod_proxy_http.so, mod_proxy_http2.so, mod_unique_i
 
         mod_security2.so, mod_proxy.html.so
         
-ACTION: Check file C:\Apache24 -> conf -> http.conf
+ACTION: Check files in C:\Apache24 -> conf -> httpd.conf
 
 RESULT:
 
@@ -120,10 +120,62 @@ RESULT: SecRuleEngine DetectionOnly  ==> Atack Injection is perceived but not av
 
 ACTION: Check files CRS files. Make sure all files from https://coreruleset.org/installation/ are loaded.
 
-RESULT: Exists file C:\Apache24 -> conf -> extra -> crs-setup.conf e também 
+RESULT: Exists files in C:\Apache24 -> conf -> extra -> crs-setup.conf e também 
 
         C:\Apache24 -> conf -> extra -> crs-rules -> *.conf 
         
-COMMENT: Otherwise, firewall does not work
+COMMENT: Otherwise, if no CRS files, firewall does not work
 
-2- Teste
+1.3 Install OWASP ZAP. Straight forward installation. https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project
+    
+    After installation, it can be openned with double click on OWASP ZAP on Windows.
+
+1.4 Install OWASP WebGoat. https://www.owasp.org/index.php/Category:OWASP_WebGoat_Project
+
+    It can also be installed downloading WebGoat from https://drive.google.com/drive/folders/0APdJkL-V1j5XUk9PVA
+    
+    Create a directory webgoat to install
+    
+    To start Webgoat, 
+    
+    A- Open command console CMD in admin mode
+    
+    B- Goto C:\....\webgoat
+    
+    C- Issue the command: java -jar webgoat-container-7.1-exec.jar
+    
+    RESULT: 2019-07-25 10:40:41,491 INFO  - Browse to http://localhost:8080/WebGoat and happy hacking!
+    
+1.5 Single SQL Injection Test
+
+    PRE-CONDITION: Reverse Proxy and ModSecurity configured in Apache2.4, i.e. Firewall. OWASP ZAP application started. WebGoat started.
+    
+    ACTION: Script SQL Injection works, Firewall off (SecRuleEngine DetectionOnly at httpd.conf). 
+     
+            At OWASP ZAP, press green buttom "set breaks on all requests and responses". Start Mozzila firefox from own OWASP ZAP.
+            
+            WebGoat apps pops up. Enter credentials guest/guest
+            
+            Goto left panel Injection flaws -> String SQL Injection
+            
+            Type at Enter your last name: Snow' or 'a' = 'a
+            
+            Press Go!
+            
+    RESULT: List of Names with Snow ....
+    
+    COMMENT: String SQL Injection works! Firewall rule not active.
+            
+    ACTION: Script SQL Injection does not works, Firewall on (SecRuleEngine On at httpd.conf). 
+     
+            Goto left panel Injection flaws -> String SQL Injection
+            
+            Type at Enter your last name: Snow' or 'a' = 'a
+            
+            Press Go!
+            
+    RESULT: List of Names is not displayed
+    
+    COMMENT: String SQL Injection does not works! Firewall is active and works!
+
+2- Tool xxx
