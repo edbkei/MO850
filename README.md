@@ -104,4 +104,18 @@ Include conf/extra/crs-rules/*.conf
 
 (IfModule)
 
+ACTION: Check file C:\Apache24 -> conf -> modsecurity.conf
+
+RESULT: SecRuleEngine DetectionOnly  ==> Atack Injection is perceived but not avoided. It is possible to see in log file.
+
+        Note: In WebGoat, SQL Injection, if you type your last name: Snow' or 'a' = 'a
+        
+              SQL command SELECT * FROM user_data WHERE last_name = 'Snow' will bring full table, successfully. Firewall not block it.
+           
+        SecRuleEngine On  ==> Atack Injection is perceived and avoided. It is possible to see in log file.
+
+        Note: In WebGoat, SQL Injection, if you type your last name: Snow' or 'a' = 'a
+        
+              SQL command SELECT * FROM user_data WHERE last_name = 'Snow' will result in unsuccessful. Firewall blocks sucessfully.
+
 2- Teste
