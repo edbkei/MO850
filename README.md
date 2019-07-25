@@ -86,11 +86,9 @@ LoadModule unique_id_module modules/mod_unique_id.so
 
 LoadModule security2_module modules/mod_security2.so
 
-# Various modsecurity
-
 Include conf/modsecurity.conf
 
-IfModule security2_module
+(IfModule security2_module)
 
 #SecRuleEngine DetectionOnly
 
@@ -104,6 +102,6 @@ Include conf/extra/crs-setup.conf
 
 Include conf/extra/crs-rules/*.conf
 
-IfModule
+(IfModule)
 
 2- Teste
