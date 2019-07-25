@@ -42,5 +42,24 @@ httpd.exe -k stop    # Parada do Web server Apache
 
 httpd.exe -t         # Teste de configuração 
 
+1.2.1 Check Instalation of Proxy Reverse
+
+GOTO Apache24 -> conf -> httpd.conf
+
+<IfModule proxy_module>
+   
+ProxyPass "/" "http://localhost:8080/"
+
+ProxyPassReverse "/" "http://localhost:8080/"
+
+</IfModule>
+
+This makes possible the an external user in browse type 
+
+http://localhost:80/WebGoat
+
+Then pass by "Firewall" and goto "intranet"
+
+http://localhost:8080/WebGoat
 
 2- Teste
