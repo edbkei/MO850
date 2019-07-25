@@ -118,4 +118,12 @@ RESULT: SecRuleEngine DetectionOnly  ==> Atack Injection is perceived but not av
         
               SQL command SELECT * FROM user_data WHERE last_name = 'Snow' will result in unsuccessful. Firewall blocks sucessfully.
 
+ACTION: Check files CRS files. Make sure all files from https://coreruleset.org/installation/ are loaded.
+
+RESULT: Exists file C:\Apache24 -> conf -> extra -> crs-setup.conf e também 
+
+        C:\Apache24 -> conf -> extra -> crs-rules -> *.conf 
+        
+COMMENT: Otherwise, firewall does not work
+
 2- Teste
