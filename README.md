@@ -46,13 +46,13 @@ httpd.exe -t         # Teste de configuração
 
 GOTO Apache24 -> conf -> httpd.conf
 
-%<IfModule proxy_module>
+IfModule proxy_module
    
-%ProxyPass "/" "http://localhost:8080/"
+ProxyPass "/" "http://localhost:8080/"
 
-%ProxyPassReverse "/" "http://localhost:8080/"
+ProxyPassReverse "/" "http://localhost:8080/"
 
-%</IfModule>
+IfModule
 
 *** This makes possible an external user in a browse to type 
 
