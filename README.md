@@ -54,12 +54,14 @@ ProxyPassReverse "/" "http://localhost:8080/"
 
 </IfModule>
 
-This makes possible the an external user in browse type 
+*** This makes possible an external user in a browse to type 
 
 http://localhost:80/WebGoat
 
-Then pass by "Firewall" and goto "intranet"
+Then pass by "Firewall" and goto "intranet" as
 
 http://localhost:8080/WebGoat
+
+*** Note: This examples supposes that WebGoat is up and running
 
 2- Teste
