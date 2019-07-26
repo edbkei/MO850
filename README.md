@@ -178,4 +178,15 @@ COMMENT: Otherwise, if no CRS files, firewall does not work
     
     COMMENT: String SQL Injection does not works! Firewall is active and works!
 
-2- Tool xxx
+2- Documentos para a apresentação
+   Documento técnico dos experimentos.
+   https://docs.google.com/document/d/1vUlxeKDfxQt1rCZA0KlClMbZcLHrWJo0dRfU9d0sWXk/edit?ts=5d386ee0#
+   
+   Apresentação
+   https://docs.google.com/presentation/d/1a1-jaHzNZOB7UCABxcLOFnRC1Cw0HF5439hhTklf4SQ/edit#slide=id.p
+   
+   Overleaf
+   https://www.overleaf.com/6364824353rrpfwjfvzjfy
+   
+3- Material de Referência
+
